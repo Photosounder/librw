@@ -1053,8 +1053,8 @@ beginUpdate(Camera *cam)
 //	setRenderState(D3DRS_FOGSTART, *(uint32*)&cam->fogPlane);
 //	setRenderState(D3DRS_FOGEND, *(uint32*)&cam->farPlane);
 	d3dShaderState.fogData.start = cam->fogPlane;
-	d3dShaderState.fogData.end = cam->farPlane;
-	d3dShaderState.fogData.range = 1.0f/(cam->fogPlane - cam->farPlane);
+	d3dShaderState.fogData.end = 2000.f;					// rouz edit, hardcoded the 2000.f to avoid fog scaling
+	d3dShaderState.fogData.range = 1.0f/(cam->fogPlane - 2000.f);
 	// TODO: not quite sure this is the right place to do this...
 	d3dShaderState.fogData.disable = rwStateCache.fogenable ? 0.0f : 1.0f;
 	d3dShaderState.fogDisable.start = 0.0f;
